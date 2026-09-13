@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import sqlite3
 from google import genai
 from dotenv import load_dotenv
 import os
@@ -7,6 +8,27 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+
+
+# Initialize SQLite database
+def init_db():
+    conn = sqlite3.connect("study_history.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            question TEXT NOT NULL,
+            answer TEXT NOT NULL
+        )
+    """)
+
+    conn.commit()
+    conn.close()
+
+
+init_db()
+
 
 # Get Gemini API key
 api_key = os.getenv("GEMINI_API_KEY")
@@ -75,6 +97,18 @@ answers with examples when useful.
             contents=question
         )
 
+        # Save question and answer to database
+        conn = sqlite3.connect("study_history.db")
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "INSERT INTO history (question, answer) VALUES (?, ?)",
+            (question, response.text)
+        )
+
+        conn.commit()
+        conn.close()
+
         return {
             "answer": response.text
         }
@@ -87,10 +121,52 @@ answers with examples when useful.
         }
 
 
+# Study History
+@app.route("/history")
+def history():
+
+    conn = sqlite3.connect("study_history.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT id, question, answer FROM history ORDER BY id DESC"
+    )
+
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    history_data = []
+
+    for row in rows:
+
+        history_data.append({
+            "id": row[0],
+            "question": row[1],
+            "answer": row[2]
+        })
+
+    return history_data
+
+    conn = sqlite3.connect("study_history.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT question, answer FROM history ORDER BY id DESC"
+    )
+
+    history_data = cursor.fetchall()
+    conn.close()
+
+    return render_template(
+        "history.html",
+        history=history_data
+    )
+
+
 # Run Flask server
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
         port=5000
     )
-
