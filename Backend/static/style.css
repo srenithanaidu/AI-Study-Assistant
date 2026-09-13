@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main heading */
+h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+/* Subtitle */
+body > p {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* Question box */
+#question {
+    width: 400px;
+    padding: 15px 18px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 16px;
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+#question:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+/* Ask AI button */
+#askButton {
+    background: white;
+    color: #5b4bb7;
+    margin-right: 8px;
+}
+
+#askButton:hover {
+    transform: translateY(-2px);
+}
+
+/* Clear button */
+#clearButton {
+    background: #ffffff;
+    color: #d64545;
+}
+
+#clearButton:hover {
+    transform: translateY(-2px);
+}
+
+/* Chat area */
+#answer {
+    margin-top: 25px;
+
+    width: 600px;
+    max-width: 90vw;
+
+    padding: 20px;
+
+    background: white;
+    border-radius: 15px;
+
+    color: #333;
+    font-size: 17px;
+
+    text-align: left;
+
+    min-height: 40px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    overflow-wrap: break-word;
+}
+
+/* User message */
+#answer > p {
+    color: #5b4bb7;
+    font-size: 17px;
+    font-weight: bold;
+
+    background: #f0edff;
+
+    padding: 12px 15px;
+    border-radius: 10px;
+
+    margin: 10px 0;
+}
+
+/* AI response */
+#answer > div {
+    color: #333;
+    background: #f7f7f7;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+
+    line-height: 1.6;
+}
+
+/* AI headings */
+#answer h1,
+#answer h2,
+#answer h3 {
+    color: #5b4bb7;
+    margin-top: 15px;
+}
+
+/* AI paragraphs */
+#answer div p {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* AI bullet points */
+#answer ul,
+#answer ol {
+    padding-left: 25px;
+}
+
+/* Code blocks */
+#answer pre {
+    background: #222;
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    overflow-x: auto;
+}
+
+/* Inline code */
+#answer code {
+    font-family: Consolas, monospace;
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    #question {
+        width: 90vw;
+    }
+
+    #answer {
+        width: 90vw;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+}
