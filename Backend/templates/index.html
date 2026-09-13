@@ -2,72 +2,57 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AI Study Assistant | Srenitha Naidu</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
-
 </head>
-
 
 <body>
 
     <div class="app">
 
-
-        <!-- ================= SIDEBAR ================= -->
+        <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
 
         <aside class="sidebar">
 
             <div class="sidebar-header">
-
                 <h2>📚 AI Study</h2>
-
             </div>
 
-
             <button class="new-chat" id="newChatButton">
-
                 ＋ New Chat
-
             </button>
-
 
             <div class="history-section">
 
                 <p class="history-title">
-
                     Recent Questions
-
                 </p>
-
 
                 <div id="historyList">
 
                     <p class="empty-history">
-
                         No questions yet.
-
                     </p>
 
                 </div>
 
             </div>
 
-
             <div class="sidebar-bottom">
 
-                <p>🤖 AI Study Assistant</p>
+                <p>
+                    🤖 AI Study Assistant
+                </p>
 
                 <small>
-
                     Developed by Srenitha Naidu
-
                 </small>
 
             </div>
@@ -75,11 +60,11 @@
         </aside>
 
 
-
-        <!-- ================= MAIN CHAT ================= -->
+        <!-- ============================= -->
+        <!-- MAIN CHAT AREA -->
+        <!-- ============================= -->
 
         <main class="chat-area">
-
 
             <!-- TOP BAR -->
 
@@ -88,15 +73,11 @@
                 <div>
 
                     <h1>
-
                         AI Study Assistant 🤖
-
                     </h1>
 
                     <span>
-
                         Your personal AI learning companion
-
                     </span>
 
                 </div>
@@ -104,12 +85,10 @@
             </header>
 
 
-
             <!-- CHAT CONTENT -->
 
             <section class="chat-content"
                      id="chatContent">
-
 
                 <!-- WELCOME -->
 
@@ -117,52 +96,38 @@
                      id="welcome">
 
                     <div class="welcome-icon">
-
                         👋
-
                     </div>
 
-
                     <h2>
-
                         Hi Srenitha! Welcome back 😊
-
                     </h2>
 
-
                     <p>
-
                         Ready to learn something new today?
-
                     </p>
 
-
                     <span>
-
                         Ask me anything about your studies.
-
                     </span>
 
                 </div>
-
 
 
                 <!-- ANSWERS -->
 
                 <div id="answer"></div>
 
-
             </section>
 
 
-
-            <!-- ================= INPUT AREA ================= -->
+            <!-- ============================= -->
+            <!-- INPUT AREA -->
+            <!-- ============================= -->
 
             <div class="input-area">
 
-
                 <div class="input-box">
-
 
                     <input
                         type="text"
@@ -171,57 +136,58 @@
                         autocomplete="off"
                     >
 
-
                     <button id="askButton">
-
                         ➤
-
                     </button>
-
 
                 </div>
 
 
-
                 <div class="input-actions">
 
-
                     <button id="clearButton">
-
                         🗑️ Clear Chat
-
                     </button>
-
 
                 </div>
 
 
                 <p class="disclaimer">
-
                     AI Study Assistant can make mistakes.
                     Check important information.
-
                 </p>
 
             </div>
 
+
+            <!-- ============================= -->
+            <!-- FOOTER -->
+            <!-- ============================= -->
+
+            <footer class="footer">
+
+                © 2026
+                <strong>Srenitha Naidu</strong>.
+                All Rights Reserved.
+
+            </footer>
 
         </main>
 
     </div>
 
 
-
-    <!-- Markdown -->
+    <!-- MARKED.JS -->
+    <!-- Converts Markdown AI answers into formatted HTML -->
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 
-    <!-- JavaScript -->
+    <!-- OUR JAVASCRIPT -->
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-
 
 </body>
 
 </html>
+
