@@ -5,28 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI-Study-Assistant</title>
+    <title>AI Study Assistant | Srenitha Naidu</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <h1>AI-Study-Assistant 🤖</h1>
+    <main class="container">
 
-    <p>Ask me anything about your studies!</p>
+        <h1>AI Study Assistant 🤖</h1>
 
-    <input
-        type="text"
-        id="question"
-        placeholder="Type your question here..."
-    >
+        <p>Ask me anything about your studies!</p>
 
-    <button id="askButton">Ask AI</button>
+        <input
+            type="text"
+            id="question"
+            placeholder="Type your question here..."
+            autocomplete="off"
+        >
 
-    <button id="clearButton">Clear Chat 🗑️</button>
+        <div class="button-group">
+            <button id="askButton">Ask AI</button>
+            <button id="clearButton">Clear Chat 🗑️</button>
+        </div>
 
-    <div id="answer"></div>
+        <div id="answer"></div>
+
+    </main>
+
+    <footer>
+        <div class="footer-line"></div>
+
+        <p>
+            AI Study Assistant
+            <span>•</span>
+            Developed by <strong>Srenitha Naidu</strong>
+        </p>
+
+        <small>© 2026 Srenitha Naidu. All rights reserved.</small>
+    </footer>
 
     <!-- Markdown library -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

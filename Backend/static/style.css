@@ -8,6 +8,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    color: white;
+}
+
+/* Main Content */
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Main heading */
@@ -18,7 +28,7 @@ h1 {
 }
 
 /* Subtitle */
-body > p {
+.container > p {
     color: white;
     font-size: 18px;
     margin-bottom: 25px;
@@ -36,10 +46,19 @@ body > p {
     outline: none;
 
     box-sizing: border-box;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 #question:focus {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Button group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
 }
 
 /* Buttons */
@@ -62,21 +81,22 @@ button {
 #askButton {
     background: white;
     color: #5b4bb7;
-    margin-right: 8px;
 }
 
 #askButton:hover {
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Clear button */
 #clearButton {
-    background: #ffffff;
+    background: white;
     color: #d64545;
 }
 
 #clearButton:hover {
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Chat area */
@@ -171,11 +191,63 @@ button {
     font-family: Consolas, monospace;
 }
 
+/* Professional Footer */
+footer {
+    width: 100%;
+    text-align: center;
+
+    margin-top: 40px;
+    padding: 20px 0;
+
+    font-size: 14px;
+
+    opacity: 0.9;
+}
+
+footer .footer-line {
+    width: 80%;
+    max-width: 500px;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    margin: 0 auto 15px;
+}
+
+footer p {
+    margin: 0 0 6px;
+
+    font-weight: 400;
+}
+
+footer strong {
+    font-weight: 600;
+}
+
+footer span {
+    margin: 0 6px;
+
+    opacity: 0.6;
+}
+
+footer small {
+    font-size: 12px;
+
+    opacity: 0.65;
+}
+
 /* Mobile screen */
 @media (max-width: 600px) {
 
     h1 {
         font-size: 30px;
+        text-align: center;
+    }
+
+    .container > p {
+        font-size: 16px;
+        text-align: center;
     }
 
     #question {
@@ -186,7 +258,15 @@ button {
         width: 90vw;
     }
 
+    .button-group {
+        flex-wrap: wrap;
+    }
+
     button {
         margin-top: 10px;
+    }
+
+    footer {
+        margin-top: 30px;
     }
 }
