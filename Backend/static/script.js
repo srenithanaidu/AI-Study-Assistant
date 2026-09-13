@@ -11,13 +11,27 @@ async function askAI() {
         return;
     }
 
-    // Show user's question
-    answer.innerHTML += "<p>👩 You: " + question + "</p>";
+    // Disable button while AI is responding
+    button.disabled = true;
+    button.textContent = "Thinking... 🤖";
 
-    // Show loading message
+    // Show user's question
+    const userMessage = document.createElement("p");
+    userMessage.innerHTML = "👩 You: " + question;
+    answer.appendChild(userMessage);
+
+    // Show animated loading message
     const loading = document.createElement("div");
-    loading.innerHTML = "🤖 AI: Thinking...";
+    loading.innerHTML = "🤖 AI: Thinking";
     answer.appendChild(loading);
+
+    // Animate dots
+    let dots = 0;
+
+    const loadingAnimation = setInterval(() => {
+        dots = (dots + 1) % 4;
+        loading.innerHTML = "🤖 AI: Thinking" + ".".repeat(dots) + " ⏳";
+    }, 400);
 
     try {
 
@@ -31,7 +45,14 @@ async function askAI() {
             })
         });
 
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
+
         const data = await response.json();
+
+        // Stop loading animation
+        clearInterval(loadingAnimation);
 
         // Convert Markdown to HTML
         loading.innerHTML = "🤖 AI: " + marked.parse(data.answer);
@@ -40,11 +61,19 @@ async function askAI() {
 
         console.error(error);
 
-        loading.textContent = "🤖 AI: Something went wrong!";
+        // Stop loading animation
+        clearInterval(loadingAnimation);
+
+        loading.innerHTML =
+            "🤖 AI: Sorry, something went wrong. Please try again. 😔";
     }
 
     // Clear input
     input.value = "";
+
+    // Enable button again
+    button.disabled = false;
+    button.textContent = "Ask AI";
 }
 
 
