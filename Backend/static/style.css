@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,8 +22,10 @@ body {
 
 .app {
     display: flex;
+
     width: 100%;
     height: 100vh;
+
     overflow: hidden;
 }
 
@@ -31,7 +37,9 @@ body {
 .sidebar {
     width: 260px;
     min-width: 260px;
+
     background: #ffffff;
+
     border-right: 1px solid #e5e5e5;
 
     display: flex;
@@ -50,8 +58,11 @@ body {
 
 .sidebar-header {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
     margin-bottom: 22px;
 }
 
@@ -65,17 +76,21 @@ body {
     flex-shrink: 0;
 
     border: 1px solid #e5e5e5;
+
     border-radius: 10px;
 
     background: #f8f7ff;
+
     color: #5b4bb7;
 
     font-size: 19px;
+
     font-weight: bold;
 
     cursor: pointer;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -88,7 +103,9 @@ body {
 
 .menu-button:hover {
     background: #eeeaff;
+
     border-color: #d8d0ff;
+
     transform: scale(1.04);
 }
 
@@ -97,8 +114,11 @@ body {
 
 .sidebar-title {
     color: #5b4bb7;
+
     font-size: 21px;
+
     white-space: nowrap;
+
     overflow: hidden;
 }
 
@@ -108,7 +128,9 @@ body {
 }
 
 
-/* New Chat */
+/* =========================
+   NEW CHAT
+========================= */
 
 .new-chat {
     width: 100%;
@@ -116,6 +138,7 @@ body {
     padding: 12px;
 
     border: none;
+
     border-radius: 10px;
 
     background: linear-gradient(
@@ -127,13 +150,17 @@ body {
     color: white;
 
     font-size: 14px;
+
     font-weight: bold;
 
     cursor: pointer;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     gap: 6px;
 
     transition:
@@ -144,6 +171,7 @@ body {
 
 .new-chat:hover {
     transform: translateY(-1px);
+
     opacity: 0.92;
 }
 
@@ -158,33 +186,36 @@ body {
 }
 
 
-/* History */
+/* =========================
+   HISTORY
+========================= */
 
 .history-section {
     margin-top: 25px;
+
     flex: 1;
+
     overflow-y: auto;
 }
 
 
 .history-title {
     font-size: 13px;
+
     color: #777;
+
     font-weight: bold;
+
     margin-bottom: 12px;
 }
 
 
 #historyList {
     display: flex;
+
     flex-direction: column;
+
     gap: 8px;
-}
-
-
-.empty-history {
-    color: #aaa;
-    font-size: 13px;
 }
 
 
@@ -202,10 +233,13 @@ body {
     cursor: pointer;
 
     overflow: hidden;
+
     text-overflow: ellipsis;
+
     white-space: nowrap;
 
-    transition: background 0.2s ease;
+    transition:
+        background 0.2s ease;
 }
 
 
@@ -214,7 +248,22 @@ body {
 }
 
 
-/* Sidebar Bottom */
+/* Empty History */
+
+.empty-history {
+    color: #aaa;
+
+    font-size: 12px;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+
+/* =========================
+   SIDEBAR BOTTOM
+========================= */
 
 .sidebar-bottom {
     border-top: 1px solid #eeeeee;
@@ -227,14 +276,18 @@ body {
 
 .sidebar-bottom p {
     color: #555;
+
     font-size: 12px;
+
     margin-bottom: 5px;
 }
 
 
 .sidebar-bottom small {
     color: #5b4bb7;
+
     font-size: 11px;
+
     font-weight: bold;
 }
 
@@ -245,7 +298,9 @@ body {
 
 .app.sidebar-collapsed .sidebar {
     width: 78px;
+
     min-width: 78px;
+
     padding: 20px 12px;
 }
 
@@ -262,8 +317,11 @@ body {
 
 .app.sidebar-collapsed .new-chat {
     width: 50px;
+
     height: 44px;
+
     padding: 0;
+
     margin: 0 auto;
 }
 
@@ -287,18 +345,22 @@ body {
     font-size: 0;
 
     width: 50px;
+
     height: 40px;
 
     margin: 0 auto;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
 
 .app.sidebar-collapsed .history-item::before {
     content: "💬";
+
     font-size: 16px;
 }
 
@@ -331,6 +393,7 @@ body {
     flex: 1;
 
     display: flex;
+
     flex-direction: column;
 
     height: 100vh;
@@ -346,24 +409,160 @@ body {
 ========================= */
 
 .top-bar {
-    background: #ffffff;
+    position: relative;
 
-    border-bottom: 1px solid #eeeeee;
+    background: #111111;
 
-    padding: 18px 30px;
+    color: white;
+
+    border-radius: 18px;
+
+    padding: 22px 125px 22px 30px;
+
+    min-height: 85px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
 }
 
 
 .top-bar h1 {
-    color: #333;
+    color: #ffffff;
+
     font-size: 24px;
+
     margin-bottom: 5px;
+
+    font-weight: 700;
 }
 
 
 .top-bar span {
-    color: #888;
+    color: #cfcfcf;
+
     font-size: 13px;
+}
+
+
+/* =========================
+   SPIDER-MAN
+========================= */
+
+.spiderman-swing {
+    position: absolute;
+
+    right: 25px;
+
+    top: 50%;
+
+    width: 90px;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    animation:
+        spiderMove 3s ease-in-out infinite;
+}
+
+
+.spiderman-image {
+    width: 72px;
+
+    height: auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 5px 5px rgba(0, 0, 0, 0.6)
+        );
+
+    transform-style: preserve-3d;
+
+    animation:
+        spider3D 3s ease-in-out infinite;
+}
+
+
+/* Side To Side */
+
+@keyframes spiderMove {
+
+    0% {
+        transform:
+            translateY(-50%)
+            translateX(-18px)
+            rotate(-8deg);
+    }
+
+    25% {
+        transform:
+            translateY(-50%)
+            translateX(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-50%)
+            translateX(18px)
+            rotate(8deg);
+    }
+
+    75% {
+        transform:
+            translateY(-50%)
+            translateX(0)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            translateY(-50%)
+            translateX(-18px)
+            rotate(-8deg);
+    }
+}
+
+
+/* 3D Body Effect */
+
+@keyframes spider3D {
+
+    0% {
+        transform:
+            rotateY(-12deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            rotateY(12deg)
+            scale(1.08);
+    }
+
+    100% {
+        transform:
+            rotateY(-12deg)
+            scale(1);
+    }
 }
 
 
@@ -380,7 +579,9 @@ body {
 }
 
 
-/* Welcome */
+/* =========================
+   WELCOME
+========================= */
 
 .welcome {
     max-width: 650px;
@@ -402,25 +603,30 @@ body {
 
 .welcome-icon {
     font-size: 45px;
+
     margin-bottom: 15px;
 }
 
 
 .welcome h2 {
     color: #333;
+
     font-size: 24px;
+
     margin-bottom: 10px;
 }
 
 
 .welcome p {
     color: #666;
+
     margin-bottom: 8px;
 }
 
 
 .welcome span {
     color: #999;
+
     font-size: 13px;
 }
 
@@ -474,12 +680,15 @@ body {
 }
 
 
-/* Markdown */
+/* =========================
+   MARKDOWN
+========================= */
 
 .ai-message h1,
 .ai-message h2,
 .ai-message h3 {
     color: #5b4bb7;
+
     margin: 12px 0 8px;
 }
 
@@ -528,7 +737,9 @@ body {
 
 .ai-message pre code {
     background: transparent;
+
     color: #ffffff;
+
     padding: 0;
 }
 
@@ -542,10 +753,6 @@ body {
 
     border-top: 1px solid #eeeeee;
 
-    /*
-       Extra bottom space moves the
-       complete input section slightly upward.
-    */
     padding: 10px 30px 18px;
 }
 
@@ -575,7 +782,12 @@ body {
     border-color: #8c7de8;
 
     box-shadow:
-        0 0 0 3px rgba(102, 126, 234, 0.10);
+        0 0 0 3px rgba(
+            102,
+            126,
+            234,
+            0.10
+        );
 }
 
 
@@ -603,6 +815,7 @@ body {
 
 .input-box button {
     width: 45px;
+
     height: 42px;
 
     border: none;
@@ -634,6 +847,7 @@ body {
 
 .input-box button:disabled {
     cursor: not-allowed;
+
     opacity: 0.7;
 }
 
@@ -726,6 +940,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: #cfcfcf;
+
     border-radius: 10px;
 }
 
@@ -743,25 +958,48 @@ body {
 
     .sidebar {
         width: 220px;
+
         min-width: 220px;
+
         padding: 15px;
     }
 
 
     .app.sidebar-collapsed .sidebar {
         width: 70px;
+
         min-width: 70px;
+
         padding: 15px 10px;
     }
 
 
     .top-bar {
-        padding: 15px 18px;
+        padding: 15px 18px 15px 20px;
     }
 
 
     .top-bar h1 {
         font-size: 20px;
+    }
+
+
+    .top-bar span {
+        font-size: 12px;
+    }
+
+
+    .spiderman-swing {
+        right: 12px;
+
+        width: 70px;
+
+        height: 70px;
+    }
+
+
+    .spiderman-image {
+        width: 58px;
     }
 
 
@@ -772,6 +1010,7 @@ body {
 
     .welcome {
         margin: 20px auto;
+
         padding: 25px 18px;
     }
 
@@ -785,7 +1024,6 @@ body {
     .input-area {
         padding: 8px 15px 16px;
     }
-
 }
 
 
@@ -797,14 +1035,18 @@ body {
 
     .sidebar {
         width: 220px;
+
         min-width: 220px;
+
         padding: 12px;
     }
 
 
     .app.sidebar-collapsed .sidebar {
         width: 64px;
+
         min-width: 64px;
+
         padding: 12px 8px;
     }
 
@@ -816,12 +1058,17 @@ body {
 
     .menu-button {
         width: 36px;
+
         height: 36px;
     }
 
 
     .top-bar {
-        padding: 13px;
+        padding: 13px 75px 13px 13px;
+
+        min-height: 70px;
+
+        border-radius: 14px;
     }
 
 
@@ -835,52 +1082,31 @@ body {
     }
 
 
+    .spiderman-swing {
+        right: 8px;
+
+        width: 58px;
+
+        height: 58px;
+    }
+
+
+    .spiderman-image {
+        width: 48px;
+    }
+
+
     .chat-content {
         padding: 15px 10px;
-    }
-
-
-    .welcome {
-        margin: 15px auto;
-        padding: 22px 15px;
-    }
-
-
-    .welcome h2 {
-        font-size: 20px;
-    }
-
-
-    .user-message,
-    .ai-message {
-        max-width: 95%;
-    }
-
-
-    .input-area {
-        padding: 7px 10px 15px;
-    }
-
-
-    .input-box input {
-        font-size: 13px;
-        padding: 11px 10px;
-    }
-
-
-    .input-box button {
-        width: 42px;
-        height: 40px;
-    }
-
-
-    .footer {
-        font-size: 10px;
-    }
-
-
-    .footer strong {
-        font-size: 13px !important;
-    }
-
+} .welcome { margin: 15px auto; padding: 22px 15px; }
+ .welcome h2 { font-size: 20px; } 
+ .user-message,
+  .ai-message 
+  { 
+    max-width: 95%;
+ } 
+ .input-area { padding: 7px 10px 15px; 
 }
+ .input-box input {
+    font-size: 13px;
+     padding: 11px 10px; } .input-box button { width: 42px; height: 40px; } .footer { font-size: 10px; } .footer strong { font-size: 13px !important; } }

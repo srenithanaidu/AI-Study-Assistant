@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,201 +10,214 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
-          <link rel="icon" type="image/png"
-      href="{{ url_for('static', filename='icon.png') }}">
+
+    <link rel="icon"
+          type="image/png"
+          href="{{ url_for('static', filename='icon.png') }}">
+
 </head>
 
 <body>
 
-    <div class="app">
+<div class="app">
 
-        <!-- ============================= -->
-        <!-- SIDEBAR -->
-        <!-- ============================= -->
+    <!-- SIDEBAR -->
 
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-            <div class="sidebar-header">
+        <div class="sidebar-header">
 
-                <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="Toggle sidebar"
-                    title="Toggle sidebar">
-                    ☰
-                </button>
-
-                <h2 class="sidebar-title">
-                    📚 <span>AI Study</span>
-                </h2>
-
-            </div>
-
-
-            <button class="new-chat" id="newChatButton">
-
-                <span class="new-chat-icon">＋</span>
-                <span class="new-chat-text">New Chat</span>
-
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Toggle sidebar"
+                title="Toggle sidebar">
+                ☰
             </button>
 
+            <h2 class="sidebar-title">
+                📚 <span>AI Study</span>
+            </h2>
 
-            <div class="history-section">
+        </div>
 
-                <p class="history-title">
-                    Recent Questions
+        <button class="new-chat" id="newChatButton">
+
+            <span class="new-chat-icon">＋</span>
+
+            <span class="new-chat-text">
+                New Chat
+            </span>
+
+        </button>
+
+        <div class="history-section">
+
+            <p class="history-title">
+                Recent Questions
+            </p>
+
+            <div id="historyList">
+
+                <p class="empty-history">
+                    No questions yet.
                 </p>
 
-                <div id="historyList">
+            </div>
 
-                    <p class="empty-history">
-                        No questions yet.
-                    </p>
+        </div>
 
-                </div>
+        <div class="sidebar-bottom">
+
+            <p>
+                🤖 <span>AI Study Assistant</span>
+            </p>
+
+            <small>
+                Developed by Srenitha Naidu
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CHAT AREA -->
+
+    <main class="chat-area">
+
+
+        <!-- TOP BAR -->
+
+        <header class="top-bar">
+
+            <div>
+
+                <h1>
+                    AI Study Assistant 🤖
+                </h1>
+
+                <span>
+                    Your personal AI learning companion
+                </span>
 
             </div>
 
 
-            <div class="sidebar-bottom">
+            <!-- SPIDER-MAN -->
+
+            <div class="spiderman-swing" aria-hidden="true">
+
+                <img
+                    src="{{ url_for('static', filename='spiderman.png') }}"
+                    alt=""
+                    class="spiderman-image"
+                >
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT CONTENT -->
+
+        <section
+            class="chat-content"
+            id="chatContent">
+
+            <div
+                class="welcome"
+                id="welcome">
+
+                <div class="welcome-icon">
+                    👋
+                </div>
+
+                <h2>
+                    Hi Srenitha! Welcome back 😊
+                </h2>
 
                 <p>
-                    🤖 <span>AI Study Assistant</span>
+                    Ready to learn something new today?
                 </p>
 
-                <small>
-                    Developed by Srenitha Naidu
-                </small>
+                <span>
+                    Ask me anything about your studies.
+                </span>
 
             </div>
 
-        </aside>
+            <div id="answer"></div>
+
+        </section>
 
 
-        <!-- ============================= -->
-        <!-- MAIN CHAT AREA -->
-        <!-- ============================= -->
+        <!-- INPUT AREA -->
 
-        <main class="chat-area">
+        <div class="input-area">
 
+            <div class="input-box">
 
-            <!-- TOP BAR -->
+                <input
+                    type="text"
+                    id="question"
+                    placeholder="Ask anything about your studies..."
+                    autocomplete="off"
+                >
 
-            <header class="top-bar">
-
-                <div>
-
-                    <h1>
-                        AI Study Assistant 🤖
-                    </h1>
-
-                    <span>
-                        Your personal AI learning companion
-                    </span>
-
-                </div>
-
-            </header>
-
-
-            <!-- CHAT CONTENT -->
-
-            <section class="chat-content"
-                     id="chatContent">
-
-                <div class="welcome"
-                     id="welcome">
-
-                    <div class="welcome-icon">
-                        👋
-                    </div>
-
-                    <h2>
-                        Hi Srenitha! Welcome back 😊
-                    </h2>
-
-                    <p>
-                        Ready to learn something new today?
-                    </p>
-
-                    <span>
-                        Ask me anything about your studies.
-                    </span>
-
-                </div>
-
-
-                <div id="answer"></div>
-
-            </section>
-
-
-            <!-- ============================= -->
-            <!-- INPUT AREA -->
-            <!-- ============================= -->
-
-            <div class="input-area">
-
-                <div class="input-box">
-
-                    <input
-                        type="text"
-                        id="question"
-                        placeholder="Ask anything about your studies..."
-                        autocomplete="off"
-                    >
-
-                    <button id="askButton"
-                            title="Ask AI"
-                            aria-label="Ask AI">
-                        ➤
-                    </button>
-
-                </div>
-
-
-                <div class="input-actions">
-
-                    <button id="clearButton">
-                        🗑️ Clear Chat
-                    </button>
-
-                </div>
-
-
-                <p class="disclaimer">
-                    AI Study Assistant can make mistakes.
-                    Check important information.
-                </p>
+                <button
+                    id="askButton"
+                    title="Ask AI"
+                    aria-label="Ask AI">
+                    ➤
+                </button>
 
             </div>
 
 
-            <!-- ============================= -->
-            <!-- FOOTER -->
-            <!-- ============================= -->
+            <div class="input-actions">
 
-            <footer class="footer">
+                <button id="clearButton">
+                    🗑️ Clear Chat
+                </button>
 
-                © 2026
-                <strong>Srenitha Naidu</strong>.
-                All Rights Reserved.
-
-            </footer>
-
-        </main>
-
-    </div>
+            </div>
 
 
-    <!-- MARKED.JS -->
+            <p class="disclaimer">
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+                AI Study Assistant can make mistakes.
+                Check important information.
+
+            </p>
+
+        </div>
 
 
-    <!-- OUR JAVASCRIPT -->
+        <!-- FOOTER -->
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <footer class="footer">
+
+            © 2026
+
+            <strong>
+                Srenitha Naidu
+            </strong>.
+
+            All Rights Reserved.
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- MARKED.JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
