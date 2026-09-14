@@ -22,12 +22,29 @@
         <aside class="sidebar">
 
             <div class="sidebar-header">
-                <h2>📚 AI Study</h2>
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    aria-label="Toggle sidebar"
+                    title="Toggle sidebar">
+                    ☰
+                </button>
+
+                <h2 class="sidebar-title">
+                    📚 <span>AI Study</span>
+                </h2>
+
             </div>
 
+
             <button class="new-chat" id="newChatButton">
-                ＋ New Chat
+
+                <span class="new-chat-icon">＋</span>
+                <span class="new-chat-text">New Chat</span>
+
             </button>
+
 
             <div class="history-section">
 
@@ -45,10 +62,11 @@
 
             </div>
 
+
             <div class="sidebar-bottom">
 
                 <p>
-                    🤖 AI Study Assistant
+                    🤖 <span>AI Study Assistant</span>
                 </p>
 
                 <small>
@@ -65,6 +83,7 @@
         <!-- ============================= -->
 
         <main class="chat-area">
+
 
             <!-- TOP BAR -->
 
@@ -90,8 +109,6 @@
             <section class="chat-content"
                      id="chatContent">
 
-                <!-- WELCOME -->
-
                 <div class="welcome"
                      id="welcome">
 
@@ -114,8 +131,6 @@
                 </div>
 
 
-                <!-- ANSWERS -->
-
                 <div id="answer"></div>
 
             </section>
@@ -136,7 +151,9 @@
                         autocomplete="off"
                     >
 
-                    <button id="askButton">
+                    <button id="askButton"
+                            title="Ask AI"
+                            aria-label="Ask AI">
                         ➤
                     </button>
 
@@ -178,7 +195,6 @@
 
 
     <!-- MARKED.JS -->
-    <!-- Converts Markdown AI answers into formatted HTML -->
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 

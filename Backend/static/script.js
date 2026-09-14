@@ -12,6 +12,24 @@ const historyList = document.getElementById("historyList");
 
 const newChatButton = document.getElementById("newChatButton");
 
+const menuButton = document.getElementById("menuButton");
+
+const app = document.querySelector(".app");
+
+
+// =====================================
+// SIDEBAR MENU
+// =====================================
+
+menuButton.addEventListener(
+    "click",
+    function() {
+
+        app.classList.toggle("sidebar-collapsed");
+
+    }
+);
+
 
 // =====================================
 // LOAD HISTORY
@@ -107,6 +125,10 @@ function showHistory(item) {
         document.createElement("p");
 
 
+    userMessage.className =
+        "user-message";
+
+
     userMessage.textContent =
         "👩 You: " + item.question;
 
@@ -116,6 +138,10 @@ function showHistory(item) {
 
     const aiMessage =
         document.createElement("div");
+
+
+    aiMessage.className =
+        "ai-message";
 
 
     aiMessage.innerHTML =
@@ -165,6 +191,10 @@ async function askAI() {
         document.createElement("p");
 
 
+    userMessage.className =
+        "user-message";
+
+
     userMessage.textContent =
         "👩 You: " + question;
 
@@ -175,6 +205,10 @@ async function askAI() {
     // Loading message
     const loading =
         document.createElement("div");
+
+
+    loading.className =
+        "ai-message";
 
 
     loading.innerHTML =
@@ -376,3 +410,4 @@ newChatButton.addEventListener(
 // =====================================
 
 loadHistory();
+

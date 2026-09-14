@@ -4,13 +4,18 @@
     padding: 0;
 }
 
+
 body {
     font-family: Arial, sans-serif;
     background: #f5f6fa;
     min-height: 100vh;
 }
 
-/* Main App */
+
+/* =========================
+   MAIN APP
+========================= */
+
 .app {
     display: flex;
     width: 100%;
@@ -18,48 +23,149 @@ body {
     overflow: hidden;
 }
 
+
 /* =========================
    SIDEBAR
 ========================= */
 
 .sidebar {
     width: 260px;
+    min-width: 260px;
     background: #ffffff;
     border-right: 1px solid #e5e5e5;
+
     display: flex;
     flex-direction: column;
+
     padding: 20px;
+
+    transition:
+        width 0.25s ease,
+        min-width 0.25s ease,
+        padding 0.25s ease;
 }
 
-.sidebar-header h2 {
-    color: #5b4bb7;
-    font-size: 22px;
+
+/* Sidebar Header */
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 22px;
 }
 
+
+/* Hamburger Button */
+
+.menu-button {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    background: #f8f7ff;
+    color: #5b4bb7;
+
+    font-size: 19px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.menu-button:hover {
+    background: #eeeaff;
+    border-color: #d8d0ff;
+    transform: scale(1.04);
+}
+
+
+/* Sidebar Title */
+
+.sidebar-title {
+    color: #5b4bb7;
+    font-size: 21px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.sidebar-title span {
+    margin-left: 2px;
+}
+
+
+/* New Chat */
+
 .new-chat {
     width: 100%;
+
     padding: 12px;
+
     border: none;
     border-radius: 10px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
     color: white;
+
     font-size: 14px;
     font-weight: bold;
+
     cursor: pointer;
-    transition: 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
+
 
 .new-chat:hover {
     transform: translateY(-1px);
     opacity: 0.92;
 }
 
+
+.new-chat-icon {
+    font-size: 18px;
+}
+
+
+.new-chat-text {
+    white-space: nowrap;
+}
+
+
+/* History */
+
 .history-section {
     margin-top: 25px;
     flex: 1;
     overflow-y: auto;
 }
+
 
 .history-title {
     font-size: 13px;
@@ -68,35 +174,56 @@ body {
     margin-bottom: 12px;
 }
 
+
 #historyList {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
+
 .empty-history {
     color: #aaa;
     font-size: 13px;
 }
 
+
 .history-item {
     padding: 10px;
+
     background: #f6f4ff;
+
     border-radius: 8px;
+
     color: #555;
+
     font-size: 13px;
+
     cursor: pointer;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    transition: background 0.2s ease;
 }
+
 
 .history-item:hover {
     background: #ece8ff;
 }
 
+
+/* Sidebar Bottom */
+
 .sidebar-bottom {
     border-top: 1px solid #eeeeee;
+
     padding-top: 15px;
+
     text-align: center;
 }
+
 
 .sidebar-bottom p {
     color: #555;
@@ -104,11 +231,97 @@ body {
     margin-bottom: 5px;
 }
 
+
 .sidebar-bottom small {
     color: #5b4bb7;
     font-size: 11px;
     font-weight: bold;
 }
+
+
+/* =========================
+   COLLAPSED SIDEBAR
+========================= */
+
+.app.sidebar-collapsed .sidebar {
+    width: 78px;
+    min-width: 78px;
+    padding: 20px 12px;
+}
+
+
+.app.sidebar-collapsed .sidebar-header {
+    justify-content: center;
+}
+
+
+.app.sidebar-collapsed .sidebar-title {
+    display: none;
+}
+
+
+.app.sidebar-collapsed .new-chat {
+    width: 50px;
+    height: 44px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+
+.app.sidebar-collapsed .new-chat-text {
+    display: none;
+}
+
+
+.app.sidebar-collapsed .new-chat-icon {
+    font-size: 21px;
+}
+
+
+.app.sidebar-collapsed .history-title {
+    display: none;
+}
+
+
+.app.sidebar-collapsed .history-item {
+    font-size: 0;
+
+    width: 50px;
+    height: 40px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.app.sidebar-collapsed .history-item::before {
+    content: "💬";
+    font-size: 16px;
+}
+
+
+.app.sidebar-collapsed .empty-history {
+    display: none;
+}
+
+
+.app.sidebar-collapsed .sidebar-bottom p span {
+    display: none;
+}
+
+
+.app.sidebar-collapsed .sidebar-bottom small {
+    display: none;
+}
+
+
+.app.sidebar-collapsed .sidebar-bottom p {
+    font-size: 18px;
+}
+
 
 /* =========================
    CHAT AREA
@@ -116,18 +329,30 @@ body {
 
 .chat-area {
     flex: 1;
+
     display: flex;
     flex-direction: column;
+
     height: 100vh;
+
     background: #f8f9fc;
+
+    min-width: 0;
 }
 
-/* Top Bar */
+
+/* =========================
+   TOP BAR
+========================= */
+
 .top-bar {
     background: #ffffff;
+
     border-bottom: 1px solid #eeeeee;
+
     padding: 18px 30px;
 }
+
 
 .top-bar h1 {
     color: #333;
@@ -135,10 +360,12 @@ body {
     margin-bottom: 5px;
 }
 
+
 .top-bar span {
     color: #888;
     font-size: 13px;
 }
+
 
 /* =========================
    CHAT CONTENT
@@ -146,25 +373,38 @@ body {
 
 .chat-content {
     flex: 1;
+
     overflow-y: auto;
+
     padding: 35px;
 }
 
+
 /* Welcome */
+
 .welcome {
     max-width: 650px;
+
     margin: 40px auto;
+
     text-align: center;
+
     background: #ffffff;
+
     padding: 35px;
+
     border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
 }
+
 
 .welcome-icon {
     font-size: 45px;
     margin-bottom: 15px;
 }
+
 
 .welcome h2 {
     color: #333;
@@ -172,15 +412,18 @@ body {
     margin-bottom: 10px;
 }
 
+
 .welcome p {
     color: #666;
     margin-bottom: 8px;
 }
 
+
 .welcome span {
     color: #999;
     font-size: 13px;
 }
+
 
 /* =========================
    CHAT MESSAGES
@@ -188,28 +431,51 @@ body {
 
 .user-message {
     max-width: 75%;
+
     margin: 15px 0 15px auto;
+
     padding: 13px 17px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
     color: white;
+
     border-radius: 15px 15px 3px 15px;
+
     line-height: 1.5;
+
     font-size: 14px;
 }
+
 
 .ai-message {
     max-width: 80%;
+
     margin: 15px auto 15px 0;
+
     padding: 17px 20px;
+
     background: #ffffff;
+
     color: #333;
+
     border-radius: 15px 15px 15px 3px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.06);
+
     line-height: 1.6;
+
     font-size: 14px;
 }
 
-/* Markdown inside AI answer */
+
+/* Markdown */
+
 .ai-message h1,
 .ai-message h2,
 .ai-message h3 {
@@ -217,34 +483,48 @@ body {
     margin: 12px 0 8px;
 }
 
+
 .ai-message p {
     margin-bottom: 10px;
 }
+
 
 .ai-message ul,
 .ai-message ol {
     margin: 10px 0 10px 22px;
 }
 
+
 .ai-message li {
     margin-bottom: 5px;
 }
 
+
 .ai-message code {
     background: #f1efff;
+
     color: #5b4bb7;
+
     padding: 2px 5px;
+
     border-radius: 4px;
 }
 
+
 .ai-message pre {
     background: #202124;
+
     color: #ffffff;
+
     padding: 15px;
+
     border-radius: 10px;
+
     overflow-x: auto;
+
     margin: 12px 0;
 }
+
 
 .ai-message pre code {
     background: transparent;
@@ -252,80 +532,149 @@ body {
     padding: 0;
 }
 
+
 /* =========================
    INPUT AREA
 ========================= */
 
 .input-area {
     background: #ffffff;
+
     border-top: 1px solid #eeeeee;
-    padding: 15px 30px 10px;
+
+    /*
+       Extra bottom space moves the
+       complete input section slightly upward.
+    */
+    padding: 10px 30px 18px;
 }
+
 
 .input-box {
     max-width: 850px;
+
     margin: auto;
+
     display: flex;
+
     background: #f5f5f8;
+
     border: 1px solid #dddddd;
+
     border-radius: 14px;
+
     padding: 5px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+.input-box:focus-within {
+    border-color: #8c7de8;
+
+    box-shadow:
+        0 0 0 3px rgba(102, 126, 234, 0.10);
+}
+
 
 .input-box input {
     flex: 1;
+
     border: none;
+
     outline: none;
+
     background: transparent;
+
     padding: 12px 14px;
+
     font-size: 14px;
+
     color: #333;
 }
+
 
 .input-box input::placeholder {
     color: #999;
 }
 
+
 .input-box button {
     width: 45px;
     height: 42px;
+
     border: none;
+
     border-radius: 10px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
     color: white;
+
     font-size: 18px;
+
     cursor: pointer;
-    transition: 0.2s ease;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
+
 
 .input-box button:hover {
     transform: scale(1.05);
 }
 
+
+.input-box button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
 .input-actions {
     max-width: 850px;
-    margin: 8px auto 0;
+
+    margin: 7px auto 0;
+
     text-align: right;
 }
 
+
 #clearButton {
     border: none;
+
     background: transparent;
+
     color: #888;
+
     font-size: 12px;
+
     cursor: pointer;
 }
+
 
 #clearButton:hover {
     color: #5b4bb7;
 }
 
+
 .disclaimer {
     text-align: center;
+
     color: #aaa;
+
     font-size: 10px;
-    margin-top: 8px;
+
+    margin-top: 7px;
 }
+
 
 /* =========================
    FOOTER
@@ -333,26 +682,38 @@ body {
 
 .footer {
     width: 100%;
+
     text-align: center;
+
     padding: 10px 15px;
+
     background: #ffffff;
+
     border-top: 1px solid #eeeeee;
+
     color: #999999;
+
     font-size: 11px;
 }
 
-/* Srenitha Naidu - clearly highlighted */
+
 .footer strong {
     color: #5b4bb7 !important;
+
     font-size: 14px !important;
+
     font-weight: 900 !important;
+
     letter-spacing: 0.3px;
 }
 
+
 .footer strong:hover {
     color: #493a9e !important;
+
     text-decoration: underline;
 }
+
 
 /* =========================
    SCROLLBAR
@@ -362,85 +723,164 @@ body {
     width: 6px;
 }
 
+
 ::-webkit-scrollbar-thumb {
     background: #cfcfcf;
     border-radius: 10px;
 }
 
+
 ::-webkit-scrollbar-track {
     background: transparent;
 }
 
+
 /* =========================
-   MOBILE RESPONSIVE
+   TABLET
 ========================= */
 
 @media (max-width: 768px) {
 
     .sidebar {
-        width: 210px;
+        width: 220px;
+        min-width: 220px;
         padding: 15px;
     }
+
+
+    .app.sidebar-collapsed .sidebar {
+        width: 70px;
+        min-width: 70px;
+        padding: 15px 10px;
+    }
+
 
     .top-bar {
         padding: 15px 18px;
     }
 
+
     .top-bar h1 {
         font-size: 20px;
     }
 
+
     .chat-content {
         padding: 20px 15px;
     }
+
 
     .welcome {
         margin: 20px auto;
         padding: 25px 18px;
     }
 
+
     .user-message,
     .ai-message {
         max-width: 92%;
     }
 
+
     .input-area {
-        padding: 12px 15px 8px;
+        padding: 8px 15px 16px;
     }
+
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 550px) {
 
     .sidebar {
-        display: none;
+        width: 220px;
+        min-width: 220px;
+        padding: 12px;
     }
 
-    .chat-content {
-        padding: 15px 10px;
+
+    .app.sidebar-collapsed .sidebar {
+        width: 64px;
+        min-width: 64px;
+        padding: 12px 8px;
     }
+
+
+    .sidebar-header {
+        margin-bottom: 18px;
+    }
+
+
+    .menu-button {
+        width: 36px;
+        height: 36px;
+    }
+
 
     .top-bar {
-        padding: 14px;
+        padding: 13px;
     }
+
 
     .top-bar h1 {
         font-size: 18px;
     }
 
+
+    .top-bar span {
+        font-size: 12px;
+    }
+
+
+    .chat-content {
+        padding: 15px 10px;
+    }
+
+
+    .welcome {
+        margin: 15px auto;
+        padding: 22px 15px;
+    }
+
+
     .welcome h2 {
         font-size: 20px;
     }
+
 
     .user-message,
     .ai-message {
         max-width: 95%;
     }
 
+
+    .input-area {
+        padding: 7px 10px 15px;
+    }
+
+
+    .input-box input {
+        font-size: 13px;
+        padding: 11px 10px;
+    }
+
+
+    .input-box button {
+        width: 42px;
+        height: 40px;
+    }
+
+
     .footer {
         font-size: 10px;
     }
 
+
     .footer strong {
         font-size: 13px !important;
     }
+
 }
